@@ -33,3 +33,6 @@
 *.exe
 *.out
 *.app
+
+# dSYM
+src/*.dSYM
