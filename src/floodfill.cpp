@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <iomanip>
 #include "floodfill.hpp"
 
 namespace floodfill {
@@ -45,7 +46,8 @@ namespace floodfill {
   }
 
   std::ostream& operator<<(std::ostream& os, cell& c) {
-    os << std::dec << "dist: " << c.dist << " flags: " << std::hex << c.flags;
+    os.fill('0');
+    os << c.dist << " 0x" << std::hex << std::setw(4) << (int)c.flags;
     return os;
   }
 
