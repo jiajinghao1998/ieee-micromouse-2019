@@ -1,7 +1,4 @@
-all: test
-	$(MAKE) -C ./src
-
-test:
+testmain: ./src/*.cpp ./src/*.hpp
 	$(MAKE) -C ./src
 	mv ./src/testmain .
 
