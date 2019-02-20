@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iomanip>
+#include <cmath>
 #include "floodfill.hpp"
 
 namespace floodfill {
@@ -51,8 +52,15 @@ namespace floodfill {
     return os;
   }
 
+  cell maze[SIDE_LENGTH][SIDE_LENGTH];
+  std::stack<cell> st;
+
   void init() {
     // TODO
     std::cerr << "Init called" << std::endl;
+  }
+
+  uint8_t m_dist(uint8_t r1, uint8_t c1, uint8_t r2, uint8_t c2) {
+    return abs(r1 - r2) + abs(c1 - c2);
   }
 }
