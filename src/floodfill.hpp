@@ -6,19 +6,12 @@
 
 namespace floodfill {
   /* Constant global variables */
-  const uint8_t SIDE_LENGTH = 5;
-  const int LEFT_BIT_IDX = 4;
-  const int UP_BIT_IDX = 3;
-  const int RIGHT_BIT_IDX = 2;
-  const int DOWN_BIT_IDX = 1;
-  const uint8_t KEY = 0x01;
-
-  enum class direction : int {
-    LEFT,
-    UP,
-    RIGHT,
-    DOWN
-  };
+  const int SIDE_LENGTH = 5;
+  const int LEFT = 4;
+  const int UP = 3;
+  const int RIGHT = 2;
+  const int DOWN = 1;
+  const uint8_t SETBITS = 0x01;
 
   /* Represents cells */
   struct cell {
@@ -26,13 +19,18 @@ namespace floodfill {
     uint8_t dist;
     uint8_t flags; // 0 0 0 left up right down visited
 
-    // Constructor
     cell();
 
     // Util functions
-    bool get_wall_flag(direction);
+    bool get_left();
+    bool get_up();
+    bool get_right();
+    bool get_down();
     bool get_visited();
-    void set_wall_flag(direction, bool);
+    void set_left();
+    void set_up();
+    void set_right();
+    void set_down();
     void set_visited();
 
     friend std::ostream& operator<<(std::ostream&, cell&);
@@ -48,7 +46,6 @@ namespace floodfill {
   // Functions
   void init();
   uint8_t m_dist(uint8_t, uint8_t, uint8_t, uint8_t);
-  void print_maze(std::ostream&);
 }
 
 #endif
